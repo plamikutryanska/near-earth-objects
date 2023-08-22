@@ -1,20 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, SafeAreaView } from 'react-native';
+import Header  from './assets/components/Header/Header'
+import NearEarthObjects from './assets/components/NearEarthObjects/NearEarthObjects';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your Near Earth Objects!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container} forceInset={{ top: 'always' }}>  
+      <Header/>
+      <NearEarthObjects/>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: 'white',
   },
 });
