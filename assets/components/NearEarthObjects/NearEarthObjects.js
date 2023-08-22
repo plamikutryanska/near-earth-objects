@@ -1,5 +1,5 @@
 import DatePicker from "../DatePicker/DatePicker"
-import NearEarthObjectDetails from "../NearEarthObjectsDetails/NearEarthObjectDetails"
+import NearEarthObjectDetails from "../NearEarthObjectDetails/NearEarthObjectDetails"
 
 const NearEarthObjects = () => {
   return (
