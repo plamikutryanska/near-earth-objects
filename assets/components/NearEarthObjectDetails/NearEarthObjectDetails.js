@@ -1,27 +1,27 @@
 import { Text, View, StyleSheet, SafeAreaView } from 'react-native';
 
-const NearEarthObjectDetails = () => {
+const NearEarthObjectDetails = ({objectDetails}) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.sectionHeader}>
-        <Text style={styles.objectName}>Name of Object</Text>
+        <Text style={styles.objectName}>{objectDetails.name}</Text>
       </View>
       <View style={styles.objectDetailsContainer}>
         <View style={styles.objectDetailsRow}>
           <Text style={styles.objectDetailsTitle}>Approximate diameter in feet: </Text>
-          <Text>200</Text>
+          <Text>{objectDetails.approximateDiameterInFeet}</Text>
         </View>
         <View style={styles.objectDetailsRow}>
           <Text style={styles.objectDetailsTitle}>Relative velocity in miles per hour: </Text>
-          <Text>200</Text>
+          <Text>{objectDetails.relativeVelocityInMilesPerHour}</Text>
         </View>
         <View style={styles.objectDetailsRow}>
           <Text style={styles.objectDetailsTitle}>Miss distance in miles: </Text>
-          <Text>200</Text>
+          <Text>{objectDetails.missDistanceInMiles}</Text>
         </View>
         <View style={styles.objectDetailsRow}>
-          <Text style={styles.objectDetailsTitle}>Potentially hazardous: </Text>
-          <Text>False</Text>
+          <Text style={styles.objectDetailsTitle}>Potentially hazardous:</Text>
+          <Text>{objectDetails.potentiallyHazardousAsteroid.toString()}</Text>
         </View>
       </View>
     </SafeAreaView>
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   objectDetailsRow: {
     display: 'flex',
     flexDirection: 'row',
-    marginBottom: 12
+    marginBottom: 12,
   },
   objectDetailsTitle: {
     fontWeight: 'bold',

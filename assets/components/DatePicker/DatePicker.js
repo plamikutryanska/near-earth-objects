@@ -1,15 +1,8 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { Text, View, StyleSheet, SafeAreaView } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
-const DatePicker = () => {
-  const [date, setDate] = useState(new Date());
-
-  const onChange = (event, selectedDate) => {
-    const currentDate = selectedDate;
-    setDate(currentDate);
-  };
-
+const DatePicker = ({date, changeSelectedDate}) => {
   return (
     <View style={styles.container}>
       <SafeAreaView style={{alignItems: 'center', display: 'flex', flexDirection: 'row'}}>
@@ -17,7 +10,7 @@ const DatePicker = () => {
         <DateTimePicker
           value={date}
           mode={'date'}
-          onChange={onChange}
+          onChange={changeSelectedDate}
         />
     </SafeAreaView>
     </View>
