@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react'
 import DatePicker from "../DatePicker/DatePicker"
-import NearEarthObjectDetails from "../NearEarthObjectDetails/NearEarthObjectDetails"
 import { useNasaNearEarthObject } from '../../hooks/useNasaNearEarthObject';
 import { getFormattedDate } from '../../utils/getFormattedDate';
 import {getNearEarthObjectDetails} from '../../utils/getNearEarthObjectDetails'
-import { ScrollView } from 'react-native';
+import EmptyState from '../EmptyState/EmptyState';
+import NearEarthObjectsContainer from './NearEarthObjectsContainer';
 
 const NearEarthObjects = () => {
   const [date, setDate] = useState(new Date());
@@ -25,11 +25,7 @@ const NearEarthObjects = () => {
   return (
     <>
       <DatePicker date={date} changeSelectedDate={onChange}  />
-      <ScrollView>
-      {apiResponse?.map(object => {
-        return <NearEarthObjectDetails objectDetails={object}/>
-        })}
-      </ScrollView>
+      {!apiResponse ? <EmptyState/> : <NearEarthObjectsContainer apiResponse={apiResponse}/>}
     </>
   )
 }

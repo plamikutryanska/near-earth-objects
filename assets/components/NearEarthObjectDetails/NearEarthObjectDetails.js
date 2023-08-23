@@ -7,21 +7,21 @@ const NearEarthObjectDetails = ({objectDetails}) => {
         <Text style={styles.objectName}>{objectDetails.name}</Text>
       </View>
       <View style={styles.objectDetailsContainer}>
-        <View style={styles.objectDetailsRow}>
+        <View style={styles.objectDetailsWrapper}>
           <Text style={styles.objectDetailsTitle}>Approximate diameter in feet: </Text>
           <Text>{objectDetails.approximateDiameterInFeet}</Text>
         </View>
-        <View style={styles.objectDetailsRow}>
+        <View style={styles.objectDetailsWrapper}>
           <Text style={styles.objectDetailsTitle}>Relative velocity in miles per hour: </Text>
           <Text>{objectDetails.relativeVelocityInMilesPerHour}</Text>
         </View>
-        <View style={styles.objectDetailsRow}>
+        <View style={styles.objectDetailsWrapper}>
           <Text style={styles.objectDetailsTitle}>Miss distance in miles: </Text>
           <Text>{objectDetails.missDistanceInMiles}</Text>
         </View>
-        <View style={styles.objectDetailsRow}>
+        <View style={styles.objectDetailsWrapper}>
           <Text style={styles.objectDetailsTitle}>Potentially hazardous:</Text>
-          <Text>{objectDetails.potentiallyHazardousAsteroid.toString()}</Text>
+          <Text>{objectDetails.potentiallyHazardousAsteroid}</Text>
         </View>
       </View>
     </SafeAreaView>
@@ -34,8 +34,9 @@ const styles = StyleSheet.create({
   container: {
     borderWidth: 1,
     borderRadius: 10,
-    borderColor: 'black',
+    borderColor: 'white',
     margin: 20,
+    
   },
   sectionHeader: {
     backgroundColor: 'black',
@@ -53,11 +54,17 @@ const styles = StyleSheet.create({
   objectDetailsContainer: {
     minHeight: 200,
     padding: 12,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white',
+    opacity: 0.8,
+    borderBottomRightRadius: 10,
+    borderBottomLeftRadius: 10
   },
-  objectDetailsRow: {
+  objectDetailsWrapper: {
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'column',
+    alignItems: 'center',
     marginBottom: 12,
   },
   objectDetailsTitle: {

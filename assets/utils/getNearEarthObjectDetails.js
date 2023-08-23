@@ -8,7 +8,7 @@ export const getNearEarthObjectDetails = ({data, formattedDate}) => {
           approximateDiameterInFeet: 'need to figure this out',
           relativeVelocityInMilesPerHour: object.close_approach_data[0].relative_velocity?.miles_per_hour || '',
           missDistanceInMiles: object.close_approach_data[0].miss_distance?.miles || '',
-          potentiallyHazardousAsteroid: object.is_potentially_hazardous_asteroid || ''
+          potentiallyHazardousAsteroid: object.is_potentially_hazardous_asteroid.toString() || ''
         }
       })
     )
