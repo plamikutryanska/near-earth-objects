@@ -1,5 +1,5 @@
 import galaxyImage from '../../../assets/galaxy.jpg'
-import { ScrollView, StyleSheet, View, ImageBackground  } from 'react-native';
+import { ScrollView, StyleSheet, View, ImageBackground, Text  } from 'react-native';
 import NearEarthObjectDetails from "../NearEarthObjectDetails/NearEarthObjectDetails"
 
 const NearEarthObjectsContainer = ({apiResponse}) => {
@@ -7,13 +7,14 @@ const NearEarthObjectsContainer = ({apiResponse}) => {
     <>
     <ImageBackground source={galaxyImage} alt={'galaxy image'} style={styles.image} resizeMode="cover">
       <ScrollView>
-      {apiResponse?.map((object, index) => {
-        return (
-          <View key={index}>
-            <NearEarthObjectDetails objectDetails={object}/>
-          </View>
-        )
-        })}
+        <Text style={styles.totalCount}>Total count: {apiResponse.length}</Text>
+        {apiResponse?.map((object, index) => {
+          return (
+            <View key={index}>
+              <NearEarthObjectDetails objectDetails={object}/>
+            </View>
+          )
+          })}
       </ScrollView>
     </ImageBackground> 
     </>
@@ -30,4 +31,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
+  totalCount: {
+    color: 'white',
+    textTransform: 'uppercase',
+    textAlign: 'center',
+    marginTop: 20
+  }
 });
