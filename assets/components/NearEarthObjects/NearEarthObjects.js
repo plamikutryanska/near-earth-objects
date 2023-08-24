@@ -5,7 +5,7 @@ import {getNearEarthObjectDetails} from '../../utils/getNearEarthObjectDetails'
 import EmptyState from '../EmptyState/EmptyState';
 import NearEarthObjectsContainer from './NearEarthObjectsContainer';
 import Loader from '../Loader/Loader';
-import { UseNasaNearEarthObjectsV2 } from '../../hooks/useNasaNearEarthObjectV2';
+import { UseNasaNearEarthObjects } from '../../hooks/useNasaNearEarthObjects';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
@@ -30,7 +30,7 @@ const NearEarthObjects = () => {
     setFormattedDate(getFormattedDate(date))
   }, [date])
 
-  const {data, isLoading} = UseNasaNearEarthObjectsV2(formattedDate)
+  const {data, isLoading} = UseNasaNearEarthObjects(formattedDate)
 
   const apiResponse = getNearEarthObjectDetails({data, formattedDate})
 

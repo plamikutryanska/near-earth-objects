@@ -10,7 +10,7 @@ const fetchNasaData = async (formattedDate) => {
   return response.data
 }
 
-export const UseNasaNearEarthObjectsV2 = (formattedDate) => {
+export const UseNasaNearEarthObjects = (formattedDate) => {
   const {isLoading, data} = useQuery(['nasaNEO', formattedDate], () => fetchNasaData(formattedDate))
   return {data, isLoading}
 }
