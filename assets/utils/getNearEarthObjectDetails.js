@@ -2,7 +2,7 @@
 export const getNearEarthObjectDetails = ({data, formattedDate}) => {
   if(data) {
     return (
-      data.near_earth_objects[formattedDate]?.map(object => {
+      data?.near_earth_objects[formattedDate]?.map(object => {
         return {
           name: object.name || '',
           approximateDiameterInFeet: 'need to figure this out',

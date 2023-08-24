@@ -1,15 +1,20 @@
 import React, {useEffect, useState} from 'react'
 import DatePicker from "../DatePicker/DatePicker"
-import { useNasaNearEarthObject } from '../../hooks/useNasaNearEarthObject';
 import { getFormattedDate } from '../../utils/getFormattedDate';
 import {getNearEarthObjectDetails} from '../../utils/getNearEarthObjectDetails'
 import EmptyState from '../EmptyState/EmptyState';
 import NearEarthObjectsContainer from './NearEarthObjectsContainer';
+import Loader from '../Loader/Loader';
+import { UseNasaNearEarthObjectsV2 } from '../../hooks/useNasaNearEarthObjectV2';
+
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient =  new QueryClient()
 
 const NearEarthObjects = () => {
   const [date, setDate] = useState(new Date());
   const [formattedDate, setFormattedDate] = useState(getFormattedDate(date))
-  const [showPicker, setShowDatePicker] = useState(true)
+  const [showPicker, setShowDatePicker] = useState(false)
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate;
@@ -25,13 +30,19 @@ const NearEarthObjects = () => {
     setFormattedDate(getFormattedDate(date))
   }, [date])
 
- const response = useNasaNearEarthObject({formattedDate})
- const apiResponse = getNearEarthObjectDetails({data: response.data, formattedDate})
+  const {data, isLoading} = UseNasaNearEarthObjectsV2(formattedDate)
+
+  const apiResponse = getNearEarthObjectDetails({data, formattedDate})
 
   return (
     <>
+    <QueryClientProvider client={queryClient}>
       <DatePicker date={date} changeSelectedDate={onChange} showPicker={showPicker} showDatePicker={showDatePicker}/>
-      {apiResponse ? <NearEarthObjectsContainer apiResponse={apiResponse} /> : <EmptyState/>}
+      {isLoading && <Loader/>}
+      {apiResponse && !isLoading &&
+        <NearEarthObjectsContainer apiResponse={apiResponse}/>}
+      {!apiResponse && !isLoading && <EmptyState/>}
+      </QueryClientProvider>
     </>
   )
 }

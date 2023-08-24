@@ -1,14 +1,11 @@
-import { Text, View, StyleSheet, ImageBackground } from 'react-native';
-import spaceImage from '../../../assets/space.jpg'
+import { Text, View, StyleSheet } from 'react-native';
 
 const EmptyState = () => {
   return (
     <View style={styles.container}>
-      <ImageBackground source={spaceImage} alt={'space image'} resizeMode={'cover'} style={styles.image}>
       <View style={styles.detailsBox}>
         <Text style={styles.detailsText}>No Information Found for the Selected date</Text>
       </View>
-      </ImageBackground>
     </View>
   )
 }
@@ -18,10 +15,7 @@ export default EmptyState
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  image: {
-    opacity: 0.7,
-    flex: 1,
+    backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'center',
   },
