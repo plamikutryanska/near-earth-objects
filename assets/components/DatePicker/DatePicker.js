@@ -8,7 +8,7 @@ const DatePicker = ({date, changeSelectedDate, showDatePicker, showPicker}) => {
     <SafeAreaView style={styles.container}>
       <Pressable onPress={showDatePicker} style={styles.selectDateWrapper}>
         <Text style={styles.selectDate} >Select a date:</Text>
-        <Image source={calendarIcon} alt='calendar icon' style={styles.calendarIcon}/>
+        <Image source={calendarIcon} accessibilityLabel='calendar icon' style={styles.calendarIcon}/>
       </Pressable>
         {!!showPicker && (
                   <DateTimePicker

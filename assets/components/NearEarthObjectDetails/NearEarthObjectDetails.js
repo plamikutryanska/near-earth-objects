@@ -58,7 +58,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
-    opacity: 0.8,
     borderBottomRightRadius: 10,
     borderBottomLeftRadius: 10
   },
