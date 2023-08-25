@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import DatePicker from "../DatePicker/DatePicker";
@@ -31,7 +31,7 @@ const NearEarthObjects = () => {
     setFormattedDate(getFormattedDate(date));
   }, [date]);
 
-  const { data, isLoading } = UseNasaNearEarthObjects(formattedDate);
+  const { data, isLoading, isError } = UseNasaNearEarthObjects(formattedDate);
 
   const apiResponse = getNearEarthObjectDetails({ data, formattedDate });
 
@@ -48,6 +48,7 @@ const NearEarthObjects = () => {
         <NearEarthObjectsContainer apiResponse={apiResponse} />
       )}
       {!apiResponse && !isLoading && <EmptyState />}
+      {isError && <Text>Failed to fetch data</Text>}
     </QueryClientProvider>
   );
 };
