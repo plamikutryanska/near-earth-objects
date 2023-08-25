@@ -32,11 +32,9 @@ const styles = StyleSheet.create({
     height: 64,
     justifyContent: 'center',
     flexDirection: 'row',
-    display: 'flex',
     justifyContent: 'space-between'
   },
   selectDateWrapper: {
-    display: 'flex',
     flexDirection: 'row',
     alignItems: 'center'
   },

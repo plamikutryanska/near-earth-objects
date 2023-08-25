@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
   },
   sectionHeader: {
     backgroundColor: 'black',
-    display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     height: 32,
@@ -62,7 +61,6 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 10
   },
   objectDetailsWrapper: {
-    display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     marginBottom: 12,
