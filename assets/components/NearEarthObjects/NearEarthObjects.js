@@ -35,15 +35,18 @@ const NearEarthObjects = () => {
   const apiResponse = getNearEarthObjectDetails({data, formattedDate})
 
   return (
-    <>
     <QueryClientProvider client={queryClient}>
-      <DatePicker date={date} changeSelectedDate={onChange} showPicker={showPicker} showDatePicker={showDatePicker}/>
-      {isLoading && <Loader/>}
-      {apiResponse && !isLoading &&
-        <NearEarthObjectsContainer apiResponse={apiResponse}/>}
-      {!apiResponse && !isLoading && <EmptyState/>}
+        <DatePicker 
+          date={date}
+          changeSelectedDate={onChange}
+          showPicker={showPicker}
+          showDatePicker={showDatePicker}
+        />
+        {isLoading && <Loader/>}
+        {apiResponse && !isLoading &&
+          <NearEarthObjectsContainer apiResponse={apiResponse}/>}
+        {!apiResponse && !isLoading && <EmptyState/>}
       </QueryClientProvider>
-    </>
   )
 }
 

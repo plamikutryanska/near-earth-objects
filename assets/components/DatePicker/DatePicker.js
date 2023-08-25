@@ -1,16 +1,14 @@
-import React from 'react'
-import { Text, View, StyleSheet, SafeAreaView, Image, Pressable } from 'react-native';
+import { Text, StyleSheet, SafeAreaView, Image, Pressable } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import calendarIcon from '../../../assets/calendar.png'
 
 const DatePicker = ({date, changeSelectedDate, showDatePicker, showPicker}) => {
 
   return (
-    <View style={styles.container}>
-      <SafeAreaView style={{alignItems: 'center', display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
-      <Pressable onPress={showDatePicker} style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
-        <Text style={{fontSize: 12, textTransform: 'uppercase', marginRight: 12}} >Select a date:</Text>
-        <Image source={calendarIcon} alt='calendar icon' style={{width: 22, height: 22}}/>
+    <SafeAreaView style={styles.container}>
+      <Pressable onPress={showDatePicker} style={styles.selectDateWrapper}>
+        <Text style={styles.selectDate} >Select a date:</Text>
+        <Image source={calendarIcon} alt='calendar icon' style={styles.calendarIcon}/>
       </Pressable>
         {!!showPicker && (
                   <DateTimePicker
@@ -18,10 +16,10 @@ const DatePicker = ({date, changeSelectedDate, showDatePicker, showPicker}) => {
                   mode={'date'}
                   onChange={changeSelectedDate}
                   display='default'
+                  style={{marginRight: 12}}
                 />
         )}
-      </SafeAreaView>
-    </View>
+    </SafeAreaView>
   )
 }
 
@@ -31,9 +29,25 @@ export default DatePicker
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    paddingLeft: 12,
-    paddingRight: 12,
     height: 64,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    flexDirection: 'row',
+    display: 'flex',
+    justifyContent: 'space-between'
+  },
+  selectDateWrapper: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  selectDate: {
+    fontSize: 12,
+    textTransform: 'uppercase',
+    marginRight: 12,
+    marginLeft: 12
+  },
+  calendarIcon: {
+    width: 22,
+    height: 22
   }
 });

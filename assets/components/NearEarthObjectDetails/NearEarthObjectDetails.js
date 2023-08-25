@@ -9,7 +9,8 @@ const NearEarthObjectDetails = ({objectDetails}) => {
       <View style={styles.objectDetailsContainer}>
         <View style={styles.objectDetailsWrapper}>
           <Text style={styles.objectDetailsTitle}>Approximate diameter in feet: </Text>
-          <Text>{objectDetails.approximateDiameterInFeet}</Text>
+          <Text>Min: {objectDetails.approximateDiameterInFeet.minDiameter}</Text>
+          <Text>Max: {objectDetails.approximateDiameterInFeet.maxDiameter}</Text>
         </View>
         <View style={styles.objectDetailsWrapper}>
           <Text style={styles.objectDetailsTitle}>Relative velocity in miles per hour: </Text>

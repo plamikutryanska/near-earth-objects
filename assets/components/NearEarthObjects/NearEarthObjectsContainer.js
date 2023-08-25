@@ -4,7 +4,7 @@ import NearEarthObjectDetails from "../NearEarthObjectDetails/NearEarthObjectDet
 
 const NearEarthObjectsContainer = ({apiResponse}) => {
   return (
-      <ScrollView style={{backgroundColor: 'black'}}>
+      <ScrollView style={styles.container}>
         <Text style={styles.totalCount}>Total count: {apiResponse?.length}</Text>
         {apiResponse?.map((object, index) => {
           return (
@@ -22,16 +22,12 @@ export default NearEarthObjectsContainer
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'black'
   },
   totalCount: {
     color: 'white',
     textTransform: 'uppercase',
     textAlign: 'center',
     marginTop: 20
-  },
-  horizontal: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    padding: 10,
-  },
+  }
 });
