@@ -31,7 +31,7 @@ const NearEarthObjects = () => {
     setFormattedDate(getFormattedDate(date));
   }, [date]);
 
-  const { data, isLoading, isError } = UseNasaNearEarthObjects(formattedDate);
+  const { data, isLoading } = UseNasaNearEarthObjects(formattedDate);
 
   const apiResponse = getNearEarthObjectDetails({ data, formattedDate });
 
@@ -48,7 +48,6 @@ const NearEarthObjects = () => {
         <NearEarthObjectsContainer apiResponse={apiResponse} />
       )}
       {!apiResponse && !isLoading && <EmptyState />}
-      {isError && <Text>Failed to fetch data</Text>}
     </QueryClientProvider>
   );
 };
