@@ -17,6 +17,14 @@ const NearEarthObjects = () => {
   const [formattedDate, setFormattedDate] = useState(getFormattedDate(date));
   const [showPicker, setShowDatePicker] = useState(false);
 
+  /// DELETE DELETE DELETE
+  /// DELETE DELETE DELETE
+  /// DELETE DELETE DELETE
+  /// DELETE DELETE DELETE
+  /// DELETE DELETE DELETE
+  /// DELETE DELETE DELETE
+  /// DELETE DELETE DELETE
+
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate;
     setDate(currentDate);
@@ -37,12 +45,12 @@ const NearEarthObjects = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <DatePicker
+      {/* <DatePicker
         date={date}
         changeSelectedDate={onChange}
         showPicker={showPicker}
         showDatePicker={showDatePicker}
-      />
+      /> */}
       {isLoading && <Loader />}
       {apiResponse && !isLoading && (
         <NearEarthObjectsContainer apiResponse={apiResponse} />

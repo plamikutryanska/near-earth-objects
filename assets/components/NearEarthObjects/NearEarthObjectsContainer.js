@@ -13,7 +13,7 @@ const NearEarthObjectsContainer = ({apiResponse}) => {
   return (
       <ScrollView style={styles.container}>
         <Text style={styles.totalCount}>Total count: {apiResponse?.length}</Text>
-        <Text style={styles.sortText}>Sort By Miss Distance: </Text>
+        {/* <Text style={styles.sortText}>Sort By Miss Distance: </Text>
           <View style={styles.sortButtonWrapper}>
             <Pressable onPress={() => setSortDirection('ascending')}  style={{marginRight: 12}}>
               <Image source={ascending} style={styles.sortButton} accessibilityLabel='ascending button'/>
@@ -23,7 +23,7 @@ const NearEarthObjectsContainer = ({apiResponse}) => {
                 <Image source={descending} style={styles.sortButton} accessibilityLabel='descending button'/>
                 {sortDirection === 'descending' && <View style={styles.selectedSortDirection}/>}
               </Pressable>
-          </View>
+          </View> */}
         {sortedDataByMissDistance?.map((object, index) => {
           return (
             <View key={index}>
@@ -40,10 +40,10 @@ export default NearEarthObjectsContainer
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'black'
+    backgroundColor: '#DFDCE3'
   },
   totalCount: {
-    color: 'white',
+    color: 'black',
     textTransform: 'uppercase',
     textAlign: 'center',
     marginTop: 20

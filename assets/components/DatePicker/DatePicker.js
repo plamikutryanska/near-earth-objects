@@ -1,24 +1,21 @@
-import { Text, StyleSheet, SafeAreaView, Image, Pressable } from 'react-native';
+import { StyleSheet, SafeAreaView, View } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import calendarIcon from '../../../assets/calendar.png'
+import { Ionicons } from "@expo/vector-icons";
 
-const DatePicker = ({date, changeSelectedDate, showDatePicker, showPicker}) => {
+const DatePicker = ({date, changeSelectedDate}) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Pressable onPress={showDatePicker} style={styles.selectDateWrapper}>
-        <Text style={styles.selectDate} >Select a date:</Text>
-        <Image source={calendarIcon} accessibilityLabel='calendar icon' style={styles.calendarIcon}/>
-      </Pressable>
-        {!!showPicker && (
-                  <DateTimePicker
-                  value={date}
-                  mode={'date'}
-                  onChange={changeSelectedDate}
-                  display='default'
-                  style={{marginRight: 12}}
-                />
-        )}
+      <View style={styles.selectDateWrapper}>
+      <Ionicons name="calendar-number" size={24} color={'black'} />
+        <DateTimePicker
+          value={date}
+          mode={'date'}
+          onChange={changeSelectedDate}
+          display='default'
+          style={styles.datePicker}
+        />
+      </View>
     </SafeAreaView>
   )
 }
@@ -28,24 +25,19 @@ export default DatePicker
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
     height: 64,
     justifyContent: 'center',
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   selectDateWrapper: {
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignContent: 'center',
+    width: '100%'
   },
-  selectDate: {
-    fontSize: 12,
-    textTransform: 'uppercase',
+  datePicker: {
     marginRight: 12,
-    marginLeft: 12
-  },
-  calendarIcon: {
-    width: 22,
-    height: 22
   }
 });

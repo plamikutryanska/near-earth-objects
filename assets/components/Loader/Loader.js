@@ -2,8 +2,8 @@ import { StyleSheet, View, ActivityIndicator } from 'react-native';
 
 const Loader = () => {
   return (
-      <View style={[styles.container, styles.horizontal]}>
-        <ActivityIndicator size='large' color="white" />
+      <View style={styles.container}>
+        <ActivityIndicator size='large' color="black" />
       </View>
   )
 }
@@ -12,12 +12,9 @@ export default Loader
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: 'black'
-  },
-  horizontal: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    padding: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignContent: 'center',
+    height: '100%'
   },
 });

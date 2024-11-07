@@ -1,33 +1,31 @@
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, StyleSheet, SafeAreaView, Image } from 'react-native';
+ 
 
-const EmptyState = () => {
+const EmptyState = ({message}) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.detailsBox}>
-        <Text style={styles.detailsText}>No Information Found for the Selected date</Text>
-      </View>
-    </View>
+    <SafeAreaView style={styles.emptyStateContainer} forceInset={{ top: 'always' }}>  
+      <Image source={require('../../images/alien.png')} style={styles.image}/>
+      <Text style={styles.text}>{message}</Text>
+    </SafeAreaView>
   )
 }
 
 export default EmptyState
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'black',
+  emptyStateContainer: {
     alignItems: 'center',
     justifyContent: 'center',
+    alignContent: 'center',
+    height: '100%'
   },
-  detailsBox: {
-    backgroundColor: 'white',
-    height: 46,
-    width: '80%',
-    alignItems: 'center',
-    justifyContent: 'center',
+  image: {
+    width: 240,
+    height:280
   },
-  detailsText: {
-    fontSize: 12,
-    textTransform: 'uppercase'
+  text: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    textAlign: 'center'
   }
 });

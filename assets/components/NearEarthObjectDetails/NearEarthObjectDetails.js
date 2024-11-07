@@ -1,5 +1,8 @@
-import React from "react";
-import { Text, View, StyleSheet, SafeAreaView } from "react-native";
+import React, { useContext } from "react";
+import { Text, View, StyleSheet, SafeAreaView, Pressable } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import { WatchListContext } from "../../store/context/watchListContext";
+
 
 const DetailItem = ({ title, value }) => (
   <View style={styles.objectDetailsWrapper}>
@@ -10,6 +13,7 @@ const DetailItem = ({ title, value }) => (
 
 const NearEarthObjectDetails = ({ objectDetails }) => {
   const {
+    id,
     name,
     approximateDiameterInFeet: { minDiameter, maxDiameter } = {},
     relativeVelocityInMilesPerHour,
@@ -30,10 +34,28 @@ const NearEarthObjectDetails = ({ objectDetails }) => {
     { title: "Potentially hazardous:", value: potentiallyHazardousAsteroid },
   ];
 
+  const watchListContext = useContext(WatchListContext)
+  const neosOnWatchListIds = watchListContext.watchListState.map((neo) => neo.id)
+
+  const eyeIconColor = neosOnWatchListIds.includes(id) ? '#beef00' : 'white'
+
+  const handleWatchListItems = (isAddedToWatchList) => {
+      if(!isAddedToWatchList || neosOnWatchListIds.length === 0){
+         return watchListContext.addToWatchList(objectDetails)
+      } else return watchListContext.removeFromWatchList(id)
+      
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.sectionHeader}>
         <Text style={styles.objectName}>{name}</Text>
+
+        <Pressable onPress={() => handleWatchListItems(neosOnWatchListIds.includes(id))}>
+          <Ionicons name="eye" size={22} color={eyeIconColor} />
+        </Pressable>
+
+
       </View>
       <View style={styles.objectDetailsContainer}>
         {detailsData.map((details, index) => {
@@ -58,14 +80,23 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderColor: "white",
     margin: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 5,
+    // For Android
+    elevation: 10,
+    borderRadius: 10,
   },
   sectionHeader: {
     backgroundColor: "black",
+    flexDirection: 'row',
     alignItems: "center",
-    justifyContent: "center",
-    height: 32,
+    justifyContent: "space-between",
+    height: 42,
     borderTopLeftRadius: 9,
     borderTopRightRadius: 9,
+    padding: 12
   },
   objectName: {
     color: "white",

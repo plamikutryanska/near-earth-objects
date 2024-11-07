@@ -4,6 +4,7 @@ export const getNearEarthObjectDetails = ({data, formattedDate}) => {
     return (
       data?.near_earth_objects[formattedDate]?.map(object => {
         return {
+          id: object.neo_reference_id,
           name: object.name || '',
           approximateDiameterInFeet: {
             minDiameter: object.estimated_diameter?.feet?.estimated_diameter_min || '',
@@ -19,3 +20,8 @@ export const getNearEarthObjectDetails = ({data, formattedDate}) => {
 
   return []
 }
+
+
+
+
+
