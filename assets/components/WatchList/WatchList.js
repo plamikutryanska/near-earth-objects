@@ -1,5 +1,5 @@
-import { ScrollView, Text, StyleSheet } from "react-native"
 import { useContext } from "react"
+import { ScrollView, Text, StyleSheet } from "react-native"
 import {WatchListContext} from '../../store/context/watchListContext'
 import NearEarthObjectDetails from "../NearEarthObjectDetails/NearEarthObjectDetails"
 import EmptyState from "../EmptyState/EmptyState"

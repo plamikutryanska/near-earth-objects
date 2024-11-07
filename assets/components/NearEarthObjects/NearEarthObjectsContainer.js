@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { ScrollView, StyleSheet, View, Text, Pressable, Image } from 'react-native';
+import { ScrollView, StyleSheet, View, Text, Pressable } from 'react-native';
 import { Ionicons } from "@expo/vector-icons";
 
 import { getSortedDataByMissDistance } from '../../utils/getSortedDataByMissDistance';
@@ -61,10 +61,6 @@ const styles = StyleSheet.create({
   sortButtonWrapper: {
     flexDirection: 'row',
     justifyContent: 'center'
-  },
-  sortButton: {
-    width: 32,
-    height: 32
   },
   selectedSortDirection: {
     borderColor: '#e03910',

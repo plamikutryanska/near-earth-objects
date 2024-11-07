@@ -50,12 +50,9 @@ const NearEarthObjectDetails = ({ objectDetails }) => {
     <SafeAreaView style={styles.container}>
       <View style={styles.sectionHeader}>
         <Text style={styles.objectName}>{name}</Text>
-
         <Pressable onPress={() => handleWatchListItems(neosOnWatchListIds.includes(id))}>
           <Ionicons name="eye" size={22} color={eyeIconColor} />
         </Pressable>
-
-
       </View>
       <View style={styles.objectDetailsContainer}>
         {detailsData.map((details, index) => {
