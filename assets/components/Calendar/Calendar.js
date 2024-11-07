@@ -28,7 +28,7 @@ const Calendar = () => {
 
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView>
       <Text style={styles.text}>
         To view the Near-Earth Objects on a given date,
         please select a date from the calendar below.
@@ -51,10 +51,8 @@ const Calendar = () => {
 export default Calendar
 
 const styles = StyleSheet.create({
-  container: {
-    margin: 24
-  },
   text: {
+    margin: 12,
     fontSize: 14,
     fontWeight: 'bold',
     textAlign: 'center',

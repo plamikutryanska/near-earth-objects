@@ -1,6 +1,6 @@
 import { StyleSheet, SafeAreaView, View } from 'react-native';
-import DateTimePicker from '@react-native-community/datetimepicker';
 import { Ionicons } from "@expo/vector-icons";
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 const DatePicker = ({date, changeSelectedDate}) => {
 

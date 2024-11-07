@@ -37,7 +37,7 @@ const NearEarthObjectDetails = ({ objectDetails }) => {
   const watchListContext = useContext(WatchListContext)
   const neosOnWatchListIds = watchListContext.watchListState.map((neo) => neo.id)
 
-  const eyeIconColor = neosOnWatchListIds.includes(id) ? '#beef00' : 'white'
+  const eyeIconColor = neosOnWatchListIds.includes(id) ? '#e03910' : 'white'
 
   const handleWatchListItems = (isAddedToWatchList) => {
       if(!isAddedToWatchList || neosOnWatchListIds.length === 0){

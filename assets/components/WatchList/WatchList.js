@@ -31,6 +31,8 @@ export default WatchList
 const styles = StyleSheet.create({
   text: {
     color: 'black',
+    fontWeight: 'bold',
+    fontSize: 16,
     textTransform: 'uppercase',
     textAlign: 'center',
     marginTop: 20
